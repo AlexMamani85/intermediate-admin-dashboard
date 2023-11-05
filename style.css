@@ -1,7 +1,18 @@
+body{
+    font-family: 'Nerko One', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Edu TAS Beginner', cursive;
+}
+
+img{
+    height: 30px;
+    fill: white;
+}
+
 .container{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 200px 1fr;
     grid-template-areas: 
         "sidebar header"
         "sidebar main";
@@ -13,67 +24,118 @@
 
 .sidebar{
     grid-area: sidebar;
-    background-color: red;
+    background-color: #1992D4;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 200px 100px ;
+    grid-template-rows: 80px 300px 150px ;
     height: 100%;
-    width: 100%;
     gap: 20px;
+    color: white;
 }
 .dashboardSidebar{
-    background-color: green;
     padding: 20px;
+    font-family: "Edu TAS Beginner";
+    font-weight: 700;
+    font-size: 3rem;
 }
 .navigationSidebar{
-    background-color: blue;
-    padding: 20px;
+    padding: 30px;
 }
 .navigationSidebar div{
-    background-color: yellow;
-    width: 100%;
-    border: 1px solid green;
+
+    font-size: 2.1rem;
 }
 
 .settingsSidebar{
-    padding: 20px;
-    background-color: purple;
+    padding: 30px;
+    font-size: 2.1rem;
 }
 
 .header{
     grid-area: header;
-    background-color: blue;
     display: grid;
     grid-template-rows: 1fr 1fr;
 
     .searchBarContainer{
-        background-color: pink;
+
         width: 100%;
         display: grid;
         grid-template-columns: 2fr 1fr;
-
+        color: black;
+        font-size: 2rem;
             .searchBar{
-                background-color: red;
+
                 width: 100%;
+                display:flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+
+                #search{
+                    height: 50px;
+                    width: 70%;
+                    font-size: 1rem;
+                    border-radius: 30px;
+                    background-color: #E2E8F0;
+                    outline: none;
+                    padding-left: 20px;
+                }
             }
             .userInfo{
-                background-color: blue;
+                
                 width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                padding-right: 20px;    
+                #cat{
+                    height: 50px;
+                }
+
             }
     }
     .aboveHeaderContainer{
-        background-color: yellow;
         width: 100%;
-        display:grid;
-        grid-template-columns: 1fr 1fr;
+        display: grid;
+        grid-template-columns: 4fr 3fr;
         .welcome{
-            background-color: green;
+            
             width: 100%;    
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            #bigCat{
+                height: 100px;
+            }
+            h1{
+                font-size: 2rem;
+            }
+            h2{
+                font-size: 2rem;
+            }
         }
 
-        .buttons{
-            background-color: purple    ;
+        .buttons {
             width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .buttons input {
+            width: 20%;
+            height: 3rem;
+            border-radius: 3rem;
+            background-color: #1992D4;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            
+            border: none;
+            outline: none;
+            outline: none;
         }
     }
 }
@@ -86,31 +148,123 @@
 
 .main{
     grid-area: main;
-    background-color: green;
+    background-color: #E2E8F0;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr 2fr;
     grid-template-areas: 
         "projects announcements"
         "projects trending";
         .projects{
-            background-color: red;
-            width: 100%;
+            
+
             grid-area: projects;
+
+            .projectsTitle{
+                padding: 5px 20px;
+                font-size: 1.5rem;
+                font-weight: bolder;
+            }
+
+            .cardsContainer{
+                display: grid;
+                grid-template-columns: repeat(  auto-fit  ,minmax(300px,1fr));
+                grid-template-rows: 1fr 1fr;
+                grid-gap: 20px;
+                padding: 20px;
+                
+
+                .card{
+                    border-radius: 10px;
+                    border: lightgray 2px solid;
+                    border-left: yellow 5px solid;
+                    padding: 10px 30px;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    background-color: white;
+
+                    .cardBody{
+                        padding: 20px 0;
+                    }
+                    .cardFooter{
+                        text-align: right;
+
+                    }
+                    .cardFooter img{
+                        
+                            height: 20px;
+                            fill: yellow;
+                        
+                        
+                    }
+                }
+
+            }
+
         }
         .announcements{
-            background-color: blue;
-            width: 100%;
             grid-area: announcements;
+            order:-1;
         }
         .trending{  
-            background-color: yellow;
-            width: 100%;
             grid-area:trending;
         }
 }
 
 
+.announcements{
+    padding: 15px;
+    .announcementsContainer{
+        border-radius: 10px;
+        padding:10px;
+        background-color: white;
+    
+        .announcement{
+            border-bottom: #1992D4 1px solid;
+            font-size: 0.8rem;
+            font-weight: lighter;
+            padding: 10px;
+            .announcementHeader{
+                font-weight: bolder;
+            }
+            .announcementBody{
+                font-weight: lighter;
+                font-style:normal;
+            }
+        }
+        .announcement:last-child{
+            border-bottom: none;
+        }
+    }
+}
 
+.trending{
 
+    .trendingContainer{
+        
+        margin:10px 50px;
+        border-radius: 5px;
+        background-color: white;
+        display:flex;
+        flex-direction: column;
 
+        .trendingCard{
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            align-content: center;
+            justify-content: center;
 
+            .trendingCardImage{
+                align-self: center;
+                padding:0 20px;
+            }
+
+            .trendingCardNames{
+                padding:5px;
+            }
+        }
+
+        
+    }
+}
